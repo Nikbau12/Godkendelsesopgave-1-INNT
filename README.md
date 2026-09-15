@@ -3,8 +3,6 @@
 Mobilapp til genbrug af overskydende byggematerialer. Håndværkere og private kan
 sælge eller forære materialer væk, som ellers ville ende i containeren.
 
-Godkendelsesopgave 1, INNT E26 (CBS). Individuel opgave.
-
 ## Links
 
 - **GitHub:** https://github.com/Nikbau12/Godkendelsesopgave-1-INNT
