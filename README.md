@@ -5,9 +5,10 @@ sælge eller forære materialer væk, som ellers ville ende i containeren.
 
 Godkendelsesopgave 1, INNT E26 (CBS). Individuel opgave.
 
-## Demovideo
+## Links
 
-[Indsæt link til demovideo her]
+- **GitHub:** https://github.com/Nikbau12/Godkendelsesopgave-1-INNT
+- **Demovideo:** https://youtu.be/RBfcZkXyBDc
 
 ## Sådan kører du appen
 
