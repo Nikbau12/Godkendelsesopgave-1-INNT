@@ -4,7 +4,7 @@ import { ref, onValue } from "firebase/database";
 import { rtdb } from "../database/firebase";
 import OpslagCard from "../components/OpslagCard";
 import ButtonComponent from "../components/ButtonComponent";
-import { KATEGORIER, OPSLAG } from "../data/const";
+import { KATEGORIER } from "../data/const";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
 export default function OversigtScreen() {
@@ -26,12 +26,10 @@ export default function OversigtScreen() {
         return unsubscribe;
     }, []);
 
-    // Eksempel-opslagene vises under dem fra databasen
-    const alleOpslag = [...opslag, ...OPSLAG];
     const filtreret =
-        valgtKategori === "Alle" ? alleOpslag : alleOpslag.filter((o) => o.kategori === valgtKategori);
+        valgtKategori === "Alle" ? opslag : opslag.filter((o) => o.kategori === valgtKategori);
 
-    const filtre = ["Alle", ...KATEGORIER.map((k) => k.navn)];
+    const filtre = ["Alle", ...KATEGORIER];
 
     return (
         <View style={GlobalStyle.container}>

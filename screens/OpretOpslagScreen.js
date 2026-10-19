@@ -53,7 +53,7 @@ export default function OpretOpslagScreen({ navigation, route }) {
             materiale: materiale,
             pris: pris,
             sted: sted,
-            kategori: kategori.navn,
+            kategori: kategori,
             billede: billede,
             saelger: auth.currentUser?.email,
             dato: idag.getDate() + "." + (idag.getMonth() + 1) + "." + idag.getFullYear(),
@@ -115,8 +115,8 @@ export default function OpretOpslagScreen({ navigation, route }) {
                 {KATEGORIER.map((k, key) => (
                     <View key={key} style={GlobalStyle.kategoriKnap}>
                         <ButtonComponent
-                            titel={k.navn}
-                            type={kategori.navn === k.navn ? "primary" : "secondary"}
+                            titel={k}
+                            type={kategori === k ? "primary" : "secondary"}
                             onPress={() => setKategori(k)}
                         />
                     </View>
@@ -132,13 +132,11 @@ export default function OpretOpslagScreen({ navigation, route }) {
                     <ButtonComponent titel="Vælg fra galleri" type="secondary" onPress={vaelgBillede} />
                 </View>
             </View>
-            {/* Uden eget billede vises kategoriens standardbillede */}
-            <BilledeComponent
-                url={billede !== "" ? { uri: billede } : kategori.billede}
-                style={GlobalStyle.forhaandsvisning}
-            />
-            {billede === "" && (
-                <Text style={GlobalStyle.billedTekst}>Intet billede valgt - kategoriens billede bruges.</Text>
+            {/* Forhåndsvisning af brugerens eget billede - vises kun hvis der er valgt et */}
+            {billede !== "" ? (
+                <BilledeComponent url={{ uri: billede }} style={GlobalStyle.forhaandsvisning} />
+            ) : (
+                <Text style={GlobalStyle.billedTekst}>Intet billede valgt endnu.</Text>
             )}
 
             {fejl !== "" && <Text style={GlobalStyle.fejl}>{fejl}</Text>}
