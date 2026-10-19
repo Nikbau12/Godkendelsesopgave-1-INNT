@@ -1,10 +1,13 @@
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import BilledeComponent from "./BilledeComponent";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
-export default function OpslagCard({ titel, materiale, pris, sted, saelger, kategori, billede, dato }) {
+export default function OpslagCard({ titel, materiale, pris, sted, saelger, kategori, billede, dato, onPress }) {
     return (
-        <View style={GlobalStyle.kort}>
+        <Pressable
+            onPress={onPress}
+            style={({ pressed }) => [GlobalStyle.kort, pressed && onPress ? GlobalStyle.kortTrykket : null]}
+        >
             {/* Kun brugerens eget billede - der findes ingen standardbilleder */}
             {billede ? <BilledeComponent url={{ uri: billede }} style={GlobalStyle.kortBillede} /> : null}
             <View style={GlobalStyle.kortTekst}>
@@ -20,6 +23,6 @@ export default function OpslagCard({ titel, materiale, pris, sted, saelger, kate
                 </View>
                 {kategori ? <Text style={GlobalStyle.kortSaelger}>Kategori: {kategori}</Text> : null}
             </View>
-        </View>
+        </Pressable>
     );
 }

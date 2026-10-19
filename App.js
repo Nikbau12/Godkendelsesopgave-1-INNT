@@ -5,7 +5,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./database/firebase";
 import ForsideScreen from "./screens/ForsideScreen";
-import OversigtScreen from "./screens/OversigtScreen";
+import OversigtStackComponent from "./components/OversigtStackComponent";
 import AuthScreen from "./screens/AuthScreen";
 import StackComponent from "./components/StackComponent";
 import { GlobalStyle } from "./styles/GlobalStyle";
@@ -54,7 +54,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Forside" component={ForsideScreen} />
-        <Tab.Screen name="Oversigt" component={OversigtScreen} />
+        <Tab.Screen name="Oversigt" component={OversigtStackComponent} />
         <Tab.Screen name="Opret opslag" component={StackComponent} />
       </Tab.Navigator>
     </NavigationContainer>

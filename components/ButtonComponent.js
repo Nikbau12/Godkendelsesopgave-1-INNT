@@ -2,22 +2,25 @@ import { Pressable, Text } from "react-native";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
 export default function ButtonComponent({ titel, onPress, type }) {
+    // "fare" bruges til sletning, ellers primary/secondary som før
+    const boks =
+        type === "primary" ? GlobalStyle.primaryBtn : type === "fare" ? GlobalStyle.fareBtn : GlobalStyle.secondaryBtn;
+    const tekst =
+        type === "primary"
+            ? GlobalStyle.primaryBtnText
+            : type === "fare"
+              ? GlobalStyle.fareBtnText
+              : GlobalStyle.secondaryBtnText;
+
     return (
         <Pressable
             style={({ pressed }) => [
-                {
-                    backgroundColor:
-                        type === "primary"
-                            ? (pressed ? GlobalStyle.primaryBtn.pressedColor : GlobalStyle.primaryBtn.defaultColor)
-                            : (pressed ? GlobalStyle.secondaryBtn.pressedColor : GlobalStyle.secondaryBtn.defaultColor),
-                },
-                type === "primary" ? GlobalStyle.primaryBtn : GlobalStyle.secondaryBtn,
+                { backgroundColor: pressed ? boks.pressedColor : boks.defaultColor },
+                boks,
             ]}
             onPress={onPress}
         >
-            <Text style={type === "primary" ? GlobalStyle.primaryBtnText : GlobalStyle.secondaryBtnText}>
-                {titel}
-            </Text>
+            <Text style={tekst}>{titel}</Text>
         </Pressable>
     );
 }

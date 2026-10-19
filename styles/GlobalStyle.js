@@ -285,4 +285,50 @@ export const GlobalStyle = StyleSheet.create({
         backgroundColor: "#2E7D32",
         paddingTop: 5,
     },
+
+    // OpslagCard - tryk-feedback
+    kortTrykket: {
+        opacity: 0.85,
+    },
+
+    // OpslagDetaljeScreen
+    detaljeBillede: {
+        width: "100%",
+        height: 220,
+        borderRadius: 10,
+        marginBottom: 14,
+    },
+    detaljeTekst: {
+        fontSize: 15,
+        color: "#555",
+        lineHeight: 22,
+        marginBottom: 12,
+    },
+    detaljeRaekke: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginBottom: 8,
+    },
+    detaljeLabel: {
+        fontSize: 13,
+        color: "#888",
+    },
+
+    // ButtonComponent - farlig handling (slet)
+    fareBtn: {
+        defaultColor: "#C62828",
+        pressedColor: "#8E0000",
+        paddingVertical: 14,
+        paddingHorizontal: 24,
+        borderRadius: 8,
+        marginTop: 10,
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    fareBtnText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+    },
 });

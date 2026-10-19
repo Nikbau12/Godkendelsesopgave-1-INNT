@@ -5,7 +5,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import ButtonComponent from "../../components/ButtonComponent";
 import { GlobalStyle } from "../../styles/GlobalStyle";
 
-export default function KameraScreen({ navigation }) {
+export default function KameraScreen({ navigation, route }) {
+    // Hvilken skærm billedet skal sendes tilbage til (Opret som standard)
+    const retur = route.params?.retur || "Opret";
     const [facing, setFacing] = useState("back");
     const [permission, requestPermission] = useCameraPermissions();
     const [loading, setLoading] = useState(false);
@@ -39,7 +41,7 @@ export default function KameraScreen({ navigation }) {
                 ? result.base64
                 : "data:image/jpeg;base64," + result.base64;
             // Send billedet tilbage til formularen
-            navigation.popTo("Opret", { billede: billede });
+            navigation.popTo(retur, { billede: billede });
         } catch (err) {
             console.log("Snap error:", err);
         } finally {

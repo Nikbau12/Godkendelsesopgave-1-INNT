@@ -28,7 +28,7 @@ export default function ForsideScreen({ navigation }) {
                 <ButtonComponent
                     titel="Find materialer"
                     type="primary"
-                    onPress={() => navigation.navigate("Oversigt")}
+                    onPress={() => navigation.navigate("Oversigt", { screen: "OversigtListe" })}
                 />
                 <ButtonComponent
                     titel="Sælg materialer"

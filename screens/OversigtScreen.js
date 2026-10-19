@@ -7,7 +7,7 @@ import ButtonComponent from "../components/ButtonComponent";
 import { KATEGORIER } from "../data/const";
 import { GlobalStyle } from "../styles/GlobalStyle";
 
-export default function OversigtScreen() {
+export default function OversigtScreen({ navigation }) {
     const [opslag, setOpslag] = useState([]);
     const [valgtKategori, setValgtKategori] = useState("Alle");
 
@@ -55,6 +55,7 @@ export default function OversigtScreen() {
                     data={filtreret}
                     renderItem={({ item }) => (
                         <OpslagCard
+                            onPress={() => navigation.navigate("OpslagDetalje", { id: item.id, opslag: item })}
                             titel={item.titel}
                             materiale={item.materiale}
                             pris={item.pris}

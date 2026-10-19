@@ -75,7 +75,7 @@ export default function OpretOpslagScreen({ navigation, route }) {
         setFejl("");
         navigation.setParams({ billede: undefined });
 
-        navigation.navigate("Oversigt");
+        navigation.navigate("Oversigt", { screen: "OversigtListe" });
     };
 
     return (
