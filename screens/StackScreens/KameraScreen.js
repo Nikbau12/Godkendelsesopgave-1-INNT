@@ -40,8 +40,8 @@ export default function KameraScreen({ navigation, route }) {
             const billede = result.base64.startsWith("data:")
                 ? result.base64
                 : "data:image/jpeg;base64," + result.base64;
-            // Send billedet tilbage til formularen
-            navigation.popTo(retur, { billede: billede });
+            // Send billedet tilbage til formularen. merge beholder de andre parametre (fx opslaget ved redigering)
+            navigation.popTo(retur, { billede: billede }, { merge: true });
         } catch (err) {
             console.log("Snap error:", err);
         } finally {

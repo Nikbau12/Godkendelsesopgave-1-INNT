@@ -6,7 +6,7 @@ finde billige materialer i nærheden.
 
 ## Links
 
-- **GitHub:** INDSÆT LINK TIL REPO
+- **GitHub:** https://github.com/Nikbau12/Godkendelsesopgave-1-INNT
 - **Demovideo:** INDSÆT LINK TIL DEMOVIDEO
 
 ## Sådan kører du appen
@@ -24,12 +24,13 @@ Husk at udfylde `database/firebase.js` med din egen Firebase-config først (se n
 - **Login** - opret en bruger eller log ind med e-mail og kodeord (Firebase Authentication)
 - **Forside** - introduktion til både købere og sælgere, viser hvem der er logget ind, og har en log ud-knap
 - **Oversigt** - liste over materialer til salg med billede, pris, sted, sælger og dato. Kan filtreres på kategori
+- **Detaljer** - tryk på et opslag for at se det i fuld størrelse. Er det dit eget, kan du redigere eller slette det
 - **Opret opslag** - formular hvor man vælger kategori og tilføjer sit eget billede, enten med kameraet eller fra galleriet
 - **Kamera** - tag et billede af materialerne, som sendes tilbage til formularen
 
 Opslag gemmes i Firebase Realtime Database, så de er der stadig, når appen genstartes,
 og alle brugere kan se dem. Billederne gemmes som tekst (base64) sammen med opslaget.
-Har et opslag ikke sit eget billede, bruges kategoriens standardbillede.
+Et opslag viser kun det billede, brugeren selv lægger op - der findes ingen standardbilleder.
 
 ## Nyt i denne version
 
@@ -39,6 +40,8 @@ Har et opslag ikke sit eget billede, bruges kategoriens standardbillede.
 - Filter på kategori i oversigten
 - Dato for hvornår et opslag er lagt op
 - Forsiden taler nu både til købere og sælgere
+- Detaljeskærm hvor egne opslag kan redigeres og slettes
+- Flere kategorier at vælge imellem
 
 ## Opsætning af Firebase
 
@@ -54,11 +57,11 @@ Opslagene ligger under `Opslag` i databasen.
 
 ```
 components/             Genbrugelige komponenter (knap, tekstfelt, billede, opslagskort,
-                        login, opret bruger) og StackComponent med stack-navigationen
+                        login, opret bruger) og de to stack-navigationer
 screens/                Forside, Oversigt, Opret opslag og AuthScreen (login)
-screens/StackScreens/   KameraScreen
+screens/StackScreens/   KameraScreen, OpslagDetaljeScreen og RedigerOpslagScreen
 database/               firebase.js - al Firebase-opsætning samlet ét sted
-data/                   Kategorier med billeder og eksempel-opslag
+data/                   const.js - listen over kategorier
 styles/                 GlobalStyle.js - al styling samlet ét sted
 assets/                 Billeder
 App.js                  Login-tjek og tab-navigationen sættes op her
