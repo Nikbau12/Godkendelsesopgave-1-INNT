@@ -19,6 +19,21 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Tillad $(PRODUCT_NAME) at bruge kameraet til at tage billeder af dine materialer",
+          "recordAudioAndroid": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Tillad $(PRODUCT_NAME) at bruge dine billeder til opslag"
+        }
+      ]
+    ]
   }
 }

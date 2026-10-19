@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./database/firebase";
 import ForsideScreen from "./screens/ForsideScreen";
 import OversigtScreen from "./screens/OversigtScreen";
-import OpretOpslagScreen from "./screens/OpretOpslagScreen";
-import { OPSLAG } from "./data/const";
+import AuthScreen from "./screens/AuthScreen";
+import StackComponent from "./components/StackComponent";
 import { GlobalStyle } from "./styles/GlobalStyle";
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [opslag, setOpslag] = useState(OPSLAG);
+  const [bruger, setBruger] = useState(null);
 
-  const tilfoejOpslag = (nytOpslag) => {
-    setOpslag([nytOpslag, ...opslag]);
-  };
+  // Lytter efter om brugeren logger ind eller ud
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setBruger(currentUser);
+    });
+    return unsubscribe;
+  }, []);
+
+  // Ikke logget ind - vis login
+  if (!bruger) {
+    return <AuthScreen />;
+  }
 
   return (
     <NavigationContainer>
@@ -43,14 +54,8 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Forside" component={ForsideScreen} />
-
-        <Tab.Screen name="Oversigt">
-          {(props) => <OversigtScreen {...props} opslag={opslag} />}
-        </Tab.Screen>
-
-        <Tab.Screen name="Opret opslag">
-          {(props) => <OpretOpslagScreen {...props} tilfoejOpslag={tilfoejOpslag} />}
-        </Tab.Screen>
+        <Tab.Screen name="Oversigt" component={OversigtScreen} />
+        <Tab.Screen name="Opret opslag" component={StackComponent} />
       </Tab.Navigator>
     </NavigationContainer>
   );

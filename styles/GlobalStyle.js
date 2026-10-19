@@ -139,9 +139,82 @@ export const GlobalStyle = StyleSheet.create({
     },
     forhaandsvisning: {
         width: "100%",
-        height: 120,
+        height: 180,
         borderRadius: 8,
+        marginBottom: 6,
+    },
+    billedKnapper: {
+        flexDirection: "row",
+        marginBottom: 10,
+    },
+    billedKnap: {
+        flex: 1,
+        marginRight: 8,
+    },
+    billedTekst: {
+        fontSize: 12,
+        color: "#888",
         marginBottom: 14,
+    },
+
+    // Filter paa OversigtScreen
+    filterRaekke: {
+        marginBottom: 10,
+    },
+
+    // AuthScreen og ForsideScreen
+    authBoks: {
+        width: "100%",
+    },
+    skiftLink: {
+        color: "#2E7D32",
+        fontSize: 15,
+        marginTop: 20,
+        textDecorationLine: "underline",
+    },
+    loggetInd: {
+        fontSize: 13,
+        color: "#888",
+        marginTop: 30,
+    },
+
+    // KameraScreen
+    kameraContainer: {
+        flex: 1,
+        backgroundColor: "#000",
+    },
+    kamera: {
+        flex: 1,
+    },
+    kameraKnapper: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center",
+        padding: 20,
+    },
+    kameraKnap: {
+        backgroundColor: "rgba(255, 255, 255, 0.25)",
+        borderRadius: 40,
+        padding: 12,
+    },
+    snapKnap: {
+        backgroundColor: "rgba(255, 255, 255, 0.25)",
+        height: 80,
+        width: 80,
+        borderRadius: 40,
+        borderWidth: 4,
+        borderColor: "#fff",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    snapTekst: {
+        fontSize: 16,
+        fontWeight: "600",
+        color: "#fff",
     },
 
     // ButtonComponent (defaultColor/pressedColor er custom felter, se 04_styling.md)
