@@ -6,8 +6,8 @@ finde billige materialer i nærheden.
 
 ## Links
 
-- **GitHub:** https://github.com/Nikbau12/Godkendelsesopgave-1-INNT
-- **Demovideo:** https://youtu.be/3bv_aIQUxBc
+- **GitHub:** https://github.com/Nikbau12/Godkendelsesopgave-INNT.git 
+- **Demovideo:** https://youtu.be/ljNQOf-DfD4 
 
 ## Sådan kører du appen
 
